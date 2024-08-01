@@ -1,0 +1,16 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+     public static boolean f(int index,int target,int arr[])
+    {
+        if(target==0) return true;
+        if(index==0) return (arr[0]==target);
+        boolean nottake=f(index-1,target,arr);
+        boolean take=false;
+        if(target>=arr[index]) take=f(index-1,target-arr[index],arr);
+        return take | nottake;
+    }
+    public static boolean subsetSumToK(int n, int k, int arr[]){
+        return f(n-1,k,arr);
+    }
+}

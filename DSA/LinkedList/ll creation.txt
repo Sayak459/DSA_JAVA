@@ -1,0 +1,53 @@
+public class ll{
+    public class node
+    {
+        int data;
+        node next;
+        public node(int data)
+        {
+            this.data=data;
+            this.next=null;
+        }
+    }
+    public node head=null;
+    public node tail=null;
+    public void add(int data)
+    {
+        node n=new node(data);
+        if(head==null)
+        {
+            head=n;
+            tail=n;
+        }
+        else
+        {
+            tail.next=n;
+            tail=n;
+        }
+    }
+    public void display()
+    {
+        node current=head;
+        if(head==null)
+        {
+            System.out.println("Node is null");
+            return;
+        }
+        else
+        {
+            while(current!=null)
+            {
+                System.out.println(current.data);
+                current=current.next;
+            }
+        }
+    }
+    public static void main(String args[])
+    {
+        ll l =new ll();
+        l.add(2);
+        l.add(3);
+        l.add(8);
+        l.display();
+    }
+}
